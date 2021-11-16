@@ -1,6 +1,15 @@
-const _ = require('lodash');
+const http = require('http')
 
-const arr = [1,[2,[3,[4,[5]]]]]
+// const server = http.createServer((req,res)=>{
+//     res.end('Welcome')
+// })
 
-const flatten = _.flattenDeep(arr);
-console.log(flatten);
+//Using Event Emitter API
+const server = http.createServer()
+//emits request event
+//subscribe to it / listen for it /respond to it
+server.on('request',(req,res)=>{
+    res.end('Welcome')
+})
+
+server.listen(5000)
